@@ -63,27 +63,13 @@ def makeYqlQuery(req):
 def makeWebhookResult(data):
 
     location = data.get('location')
-    print(location)
     current_observation=data.get('current_observation')
-    print(current_observation)
-    print(current_observation.get('pubDate'))
-    print(type(current_observation.get('pubDate')))
-
     ts = current_observation.get('pubDate')
     date = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    print(date)
-    print(type(str(current_observation.get('pubDate'))))
     condition = current_observation.get('condition')
-    
-    print(condition)
+
     fahrenheit = condition.get('temperature')
     celsius = int((fahrenheit - 32) / 1.8)
-
-    print(str(condition.get('temperature')))
-    print(type(condition.get('temperature')))
-    print(type(str(condition.get('temperature'))))
-
-    
     if (location is None) or (condition is None):
         return {}
 
@@ -97,16 +83,10 @@ def makeWebhookResult(data):
             }
     }
     
-    print("Response:")
-    print(speech)
-
-    
-
-    
-
+    return ss
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', 8000))
 
     print ("Starting app on port %d" % port)
 
