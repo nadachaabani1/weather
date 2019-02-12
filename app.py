@@ -76,8 +76,7 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
     
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-            ", the temperature at " + date + " is " + str(celsius) + "°C."
+    speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature at " + date + " is " + str(celsius) + "celsius."
     ss = {"fulfillment": {
                 "speech": speech
             }
