@@ -77,6 +77,7 @@ def makeWebhookResult(data):
     # print(json.dumps(item, indent=4))
     
     speech = "Today in " + location.get('city') + ": " + condition.get('text') + ", the temperature at " + date + " is " + str(celsius) + " celsius."
+    '''
     ss = {
         "fulfillment": {
             "messages": [
@@ -89,6 +90,16 @@ def makeWebhookResult(data):
     }
     
     return ss
+    '''
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {"slack": slack_message, "facebook": facebook_message},
+        # "contextOut": [],
+        "source": "weather"
+    }
+       
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8000))
