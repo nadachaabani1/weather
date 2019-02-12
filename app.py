@@ -45,9 +45,9 @@ def processRequest(req):
     print(response.get("location"))
 
     
-    makeWebhookResult(response)
     
-    return result.content
+    
+    return json.dumps(makeWebhookResult(response))
 
 
 def makeYqlQuery(req):
@@ -92,7 +92,10 @@ def makeWebhookResult(data):
     
     speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
             ", the temperature at " + date + " is " + str(celsius) + "°C."
-
+    ss = {"fulfillment": {
+                "speech": speech
+            }
+    }
     
     print("Response:")
     print(speech)
