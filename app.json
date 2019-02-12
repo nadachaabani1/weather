@@ -1,7 +1,7 @@
 {
   "name": "Dialogflow webhook demo",
   "description": "Dialogflow webhook demonstration",
-  "repository": "https://github.com/api-ai/apiai-weather-webhook-sample",
+  "repository": "https://github.com/nadachaabani1/weather",
   "logo": "http://xvir.github.io/img/apiai.png",
   "keywords": ["api.ai", "dialogflow", "natural language"]
 }
